@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mstb="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.jampez.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/mstb_multi_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        mstb:values="@array/planets_array"/>
+
+    <com.jampez.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/mstb_multi2_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        mstb:values="@array/dogs_array" />
+
+    <com.jampez.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/mstb_multi3_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        mstb:mstbPrimaryColor="@color/button_primary_color"
+        mstb:mstbSecondaryColor="@color/mstb_gray"
+        mstb:values="@array/dogs_array" />
+
+</LinearLayout>
