@@ -1,4 +1,4 @@
-package org.honorato.multistatetogglebutton;
+package org.honorato.mstb;
 
 import android.content.Context;
 import android.content.res.TypedArray;
