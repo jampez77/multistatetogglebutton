@@ -43,7 +43,7 @@ Then in your activity's XML:
 
 You can change change colors via xml (see above) or programmatically :
 ```java
-MultiStateToggleButton button = (MultiStateToggleButton) this.findViewById(R.id.mstb_multi_id);
+MultiStateToggleButton button = findViewById(R.id.mstb_multi_id);
 button.setColorRes(R.color.color_pressed, R.color.color_released);
 ```
 
@@ -53,7 +53,7 @@ If you don't specify any values, default colors are taken from `?attr:colorPrima
 If you need a callback for when the value changes then add this to your code:
 
 ```java
-MultiStateToggleButton button = (MultiStateToggleButton) this.findViewById(R.id.mstb_multi_id);
+MultiStateToggleButton button = findViewById(R.id.mstb_multi_id);
 button.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
 	@Override
 	public void onValueChanged(int position) {
