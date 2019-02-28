@@ -39,9 +39,8 @@ public class ToggleButton extends LinearLayout {
     }
 
     public void setValue(int value) {
-        if (this.listener != null) {
+        if (this.listener != null)
             listener.onValueChanged(value);
-        }
     }
 
 
