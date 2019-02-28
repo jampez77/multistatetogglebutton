@@ -35,7 +35,7 @@ Then in your activity's XML:
 		mstb:values="@array/planets_array"
 		mstb:mstbPrimaryColor="@color/gray"
                 mstb:mstbBorderColor="@color/black"
-    mstb:mstbSecondaryColor="@color/blue"/>
+                mstb:mstbSecondaryColor="@color/blue"/>
 </LinearLayout>
 ```
 
@@ -77,7 +77,7 @@ The values can also be specified programmatically, plus other options:
 
 
 ```java
-MultiStateToggleButton button = (MultiStateToggleButton) this.findViewById(R.id.mstb_multi_id);
+MultiStateToggleButton button = findViewById(R.id.mstb_multi_id);
 
 
 // With an array
@@ -97,7 +97,7 @@ button.enableMultipleChoice(true);
 In order to use arbitrary buttons (e.g. `ImageButton`)
 
 ```java
-MultiStateToggleButton button = (MultiStateToggleButton) this.findViewById(R.id.mstb_multi_id);
+MultiStateToggleButton button = findViewById(R.id.mstb_multi_id);
 ImageButton button1 = (ImageButton) layoutInflater.inflate(R.layout.btn_image, button, false);
 button1.setImageResource(imgResourceId1);
 ImageButton button2 = (ImageButton) layoutInflater.inflate(R.layout.btn_image, button, false);
