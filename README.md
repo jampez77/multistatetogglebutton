@@ -6,7 +6,7 @@ Multi State Toggle Button
 
 A simple multi-state toggle button for Android.
 
-![Example](img/example1.png)
+![Example](Screenshot_2019-02-28-12-50-23.png)
 
 ## Usage ##
 
