@@ -1,5 +1,7 @@
 [![](https://jitpack.io/v/jampez77/multistatetogglebutton.svg)](https://jitpack.io/#jampez77/multistatetogglebutton) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![GitHub stars](https://img.shields.io/github/stars/jampez77/multistatetogglebutton.svg?style=social&label=Star)](https://GitHub.com/jampez77/multistatetogglebutton/stargazers) 
 
+# My Contributions
+### This is a fork of the brilliant [Multi State Toggle Button](https://github.com/jlhonora/multistatetogglebutton) by [Jose Luis Honorato](https://github.com/jlhonora). This is not all that different from his repo in all honesty. I have just added a few customisable options.
 
 Multi State Toggle Button
 =========================
