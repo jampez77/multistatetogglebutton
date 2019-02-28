@@ -1,4 +1,6 @@
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MultiStateToggleButton-green.svg?style=true)](https://android-arsenal.com/details/1/2906)
+
+[!JitPack[](https://jitpack.io/v/jampez77/multistatetogglebutton.svg)](https://jitpack.io/#jampez77/multistatetogglebutton)
+
 
 Multi State Toggle Button
 =========================
@@ -7,18 +9,11 @@ A simple multi-state toggle button for Android.
 
 ![Example](img/example1.png)
 
-## To-Do ##
-
-- Support Material Design's button shadow.
-- Implement basic testing
-
-Any help is appreciated :)
-
 ## Usage ##
 
 ```
 dependencies {
-    compile 'org.honorato.multistatetogglebutton:multistatetogglebutton:0.2.2'
+    implementation 'com.github.jampez77:multistatetogglebutton:0.3.1'
 }
 ```
 
@@ -31,13 +26,14 @@ Then in your activity's XML:
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-	<org.honorato.multistatetogglebutton.MultiStateToggleButton
+	<com.jampez.multistatetogglebutton.MultiStateToggleButton
 		android:id="@+id/mstb_multi_id"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dip"
 		mstb:values="@array/planets_array"
 		mstb:mstbPrimaryColor="@color/gray"
+                mstb:mstbBorderColor="@color/black"
     mstb:mstbSecondaryColor="@color/blue"/>
 </LinearLayout>
 ```
