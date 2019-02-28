@@ -98,11 +98,11 @@ In order to use arbitrary buttons (e.g. `ImageButton`)
 
 ```java
 MultiStateToggleButton button = findViewById(R.id.mstb_multi_id);
-ImageButton button1 = (ImageButton) layoutInflater.inflate(R.layout.btn_image, button, false);
+ImageButton button1 = layoutInflater.inflate(R.layout.btn_image, button, false);
 button1.setImageResource(imgResourceId1);
-ImageButton button2 = (ImageButton) layoutInflater.inflate(R.layout.btn_image, button, false);
+ImageButton button2 = layoutInflater.inflate(R.layout.btn_image, button, false);
 button2.setImageResource(imgResourceId2);
-ImageButton button3 = (ImageButton) layoutInflater.inflate(R.layout.btn_image, button, false);
+ImageButton button3 = layoutInflater.inflate(R.layout.btn_image, button, false);
 button3.setImageResource(imgResourceI3);
 
 View[] buttons = new View[] {button1, button2, button3};
