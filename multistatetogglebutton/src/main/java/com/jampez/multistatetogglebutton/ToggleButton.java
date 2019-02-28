@@ -19,7 +19,7 @@ public class ToggleButton extends LinearLayout {
     OnValueChangedListener listener;
     Context context;
     @ColorInt
-    int colorPressed, colorNotPressed; // Resolved colors (format 0xAARRGGBB)
+    int colorPressed, colorNotPressed, borderColor; // Resolved colors (format 0xAARRGGBB)
     int colorPressedText, colorPressedBackground;
     int colorNotPressedText, colorNotPressedBackground;
     int pressedBackgroundResource, notPressedBackgroundResource;
@@ -51,8 +51,8 @@ public class ToggleButton extends LinearLayout {
      * @param colorPressed    color resource ID for the pressed button(s)
      * @param colorNotPressed color resource ID for the released button(s)
      */
-    public void setColorRes(@ColorRes int colorPressed, @ColorRes int colorNotPressed) {
-        setColors(ContextCompat.getColor(context, colorPressed), ContextCompat.getColor(context, colorNotPressed));
+    public void setColorRes(@ColorRes int colorPressed, @ColorRes int colorNotPressed, @ColorRes int borerColor) {
+        setColors(ContextCompat.getColor(context, colorPressed), ContextCompat.getColor(context, colorNotPressed), ContextCompat.getColor(context, borerColor));
     }
 
     /**
@@ -60,10 +60,12 @@ public class ToggleButton extends LinearLayout {
      *
      * @param colorPressed    resolved color for the pressed button(s)
      * @param colorNotPressed resolved color for the released button(s)
+     * @param borderColor resolved color for the released button(s)
      */
-    public void setColors(@ColorInt int colorPressed, @ColorInt int colorNotPressed) {
+    public void setColors(@ColorInt int colorPressed, @ColorInt int colorNotPressed, @ColorInt int borderColor) {
         this.colorPressed = colorPressed;
         this.colorNotPressed = colorNotPressed;
+        this.borderColor = borderColor;
     }
 
     /**

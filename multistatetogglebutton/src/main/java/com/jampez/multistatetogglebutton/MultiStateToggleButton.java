@@ -2,6 +2,8 @@ package com.jampez.multistatetogglebutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -57,6 +59,7 @@ public class MultiStateToggleButton extends ToggleButton {
             CharSequence[] texts = a.getTextArray(R.styleable.MultiStateToggleButton_values);
             colorPressed = a.getColor(R.styleable.MultiStateToggleButton_mstbPrimaryColor, 0);
             colorNotPressed = a.getColor(R.styleable.MultiStateToggleButton_mstbSecondaryColor, 0);
+            borderColor = a.getColor(R.styleable.MultiStateToggleButton_mstbBorderColor, 0);
             colorPressedText = a.getColor(R.styleable.MultiStateToggleButton_mstbColorPressedText, 0);
             colorPressedBackground = a.getColor(R.styleable.MultiStateToggleButton_mstbColorPressedBackground, 0);
             pressedBackgroundResource = a.getResourceId(R.styleable.MultiStateToggleButton_mstbColorPressedBackgroundResource, 0);
@@ -182,6 +185,14 @@ public class MultiStateToggleButton extends ToggleButton {
             this.buttons.add(b);
         }
         mainLayout.setBackgroundResource(R.drawable.button_section_shape);
+
+        GradientDrawable border = new GradientDrawable();
+        border.setStroke(2, borderColor); //black border with full opacity
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            mainLayout.setBackgroundDrawable(border);
+        } else {
+            mainLayout.setBackground(border);
+        }
     }
 
     /**
@@ -271,7 +282,8 @@ public class MultiStateToggleButton extends ToggleButton {
             texts = new ArrayList<>(0);
         }
         int size = texts.size();
-        setElements(texts.toArray(new String[size]), null, selected);
+
+        setElements(new String[size], null, selected);
     }
 
     public void setElements(int arrayResourceId, int selectedPosition) {
@@ -373,8 +385,8 @@ public class MultiStateToggleButton extends ToggleButton {
      * {@inheritDoc}
      */
     @Override
-    public void setColors(int colorPressed, int colorNotPressed) {
-        super.setColors(colorPressed, colorNotPressed);
+    public void setColors(int colorPressed, int colorNotPressed, int borderColor) {
+        super.setColors(colorPressed, colorNotPressed, borderColor);
         refresh();
     }
 

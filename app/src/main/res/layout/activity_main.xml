@@ -8,21 +8,21 @@
     tools:context=".MainActivity">
 
     <com.jampez.multistatetogglebutton.MultiStateToggleButton
-        android:id="@+id/mstb_multi_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
+        android:layout_margin="10dip"
+        mstb:mstbBorderColor="@color/colorPrimary"
+        mstb:mstbPrimaryColor="@color/colorPrimary"
+        mstb:mstbSecondaryColor="@color/white"
         mstb:values="@array/planets_array"/>
 
     <com.jampez.multistatetogglebutton.MultiStateToggleButton
-        android:id="@+id/mstb_multi2_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"
         mstb:values="@array/dogs_array" />
 
     <com.jampez.multistatetogglebutton.MultiStateToggleButton
-        android:id="@+id/mstb_multi3_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"

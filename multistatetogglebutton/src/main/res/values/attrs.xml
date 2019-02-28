@@ -10,5 +10,6 @@
         <attr name="mstbColorNotPressedText" format="reference" />
         <attr name="mstbColorNotPressedBackground" format="reference" />
         <attr name="mstbColorNotPressedBackgroundResource" format="reference" />
+        <attr name="mstbBorderColor" format="color"/>
     </declare-styleable>
 </resources>
