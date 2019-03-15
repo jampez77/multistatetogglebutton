@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -181,7 +180,7 @@ public class MultiStateToggleButton extends ToggleButton {
         mainLayout.setBackgroundResource(R.drawable.button_section_shape);
 
         GradientDrawable border = new GradientDrawable();
-        border.setStroke(2, borderColor); //black border with full opacity
+        border.setStroke(4, borderColor); //border with full opacity
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
             mainLayout.setBackgroundDrawable(border);
         else
