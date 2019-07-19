@@ -140,51 +140,54 @@ public class MultiStateToggleButton extends ToggleButton {
         setOrientation(HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
 
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (mainLayout == null)
-            mainLayout = (LinearLayout) inflater.inflate(R.layout.view_multi_state_toggle_button, this, true);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(inflater != null) {
+            if (mainLayout == null)
+                mainLayout = (LinearLayout) inflater.inflate(R.layout.view_multi_state_toggle_button, this, true);
 
-        mainLayout.removeAllViews();
+            mainLayout.removeAllViews();
 
-        this.buttons = new ArrayList<>(elementCount);
-        for (int i = 0; i < elementCount; i++) {
-            Button b;
-            if (i == 0) {
-                // Add a special view when there's only one element
-                if (elementCount == 1)
-                    b = (Button) inflater.inflate(R.layout.view_single_toggle_button, mainLayout, false);
+
+            this.buttons = new ArrayList<>(elementCount);
+            for (int i = 0; i < elementCount; i++) {
+                Button b;
+                if (i == 0) {
+                    // Add a special view when there's only one element
+                    if (elementCount == 1)
+                        b = (Button) inflater.inflate(R.layout.view_single_toggle_button, mainLayout, false);
+                    else
+                        b = (Button) inflater.inflate(R.layout.view_left_toggle_button, mainLayout, false);
+                } else if (i == elementCount - 1)
+                    b = (Button) inflater.inflate(R.layout.view_right_toggle_button, mainLayout, false);
                 else
-                    b = (Button) inflater.inflate(R.layout.view_left_toggle_button, mainLayout, false);
-            } else if (i == elementCount - 1)
-                b = (Button) inflater.inflate(R.layout.view_right_toggle_button, mainLayout, false);
+                    b = (Button) inflater.inflate(R.layout.view_center_toggle_button, mainLayout, false);
+
+                b.setText(texts != null ? texts[i] : "");
+                if (imageResourceIds != null && imageResourceIds[i] != 0)
+                    b.setCompoundDrawablesWithIntrinsicBounds(imageResourceIds[i], 0, 0, 0);
+                final int position = i;
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        setValue(position);
+                    }
+                });
+                mainLayout.addView(b);
+                if (enableDefaultSelection)
+                    setButtonState(b, selected[i]);
+
+                this.buttons.add(b);
+            }
+
+            mainLayout.setBackgroundResource(R.drawable.button_section_shape);
+
+            GradientDrawable border = new GradientDrawable();
+            border.setStroke(4, borderColor); //border with full opacity
+            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+                mainLayout.setBackgroundDrawable(border);
             else
-                b = (Button) inflater.inflate(R.layout.view_center_toggle_button, mainLayout, false);
-
-            b.setText(texts != null ? texts[i] : "");
-            if (imageResourceIds != null && imageResourceIds[i] != 0)
-                b.setCompoundDrawablesWithIntrinsicBounds(imageResourceIds[i], 0, 0, 0);
-            final int position = i;
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    setValue(position);
-                }
-            });
-            mainLayout.addView(b);
-            if (enableDefaultSelection)
-                setButtonState(b, selected[i]);
-
-            this.buttons.add(b);
+                mainLayout.setBackground(border);
         }
-        mainLayout.setBackgroundResource(R.drawable.button_section_shape);
-
-        GradientDrawable border = new GradientDrawable();
-        border.setStroke(4, borderColor); //border with full opacity
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
-            mainLayout.setBackgroundDrawable(border);
-        else
-            mainLayout.setBackground(border);
     }
 
     /**
@@ -212,31 +215,32 @@ public class MultiStateToggleButton extends ToggleButton {
         setOrientation(HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
 
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (mainLayout == null)
-            mainLayout = (LinearLayout) inflater.inflate(R.layout.view_multi_state_toggle_button, this, true);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(inflater != null) {
+            if (mainLayout == null)
+                mainLayout = (LinearLayout) inflater.inflate(R.layout.view_multi_state_toggle_button, this, true);
 
-        mainLayout.removeAllViews();
+            mainLayout.removeAllViews();
 
-        this.buttons = new ArrayList<>();
-        for (int i = 0; i < elementCount; i++) {
-            View b = buttons[i];
-            final int position = i;
-            b.setOnClickListener(new View.OnClickListener() {
+            this.buttons = new ArrayList<>();
+            for (int i = 0; i < elementCount; i++) {
+                View b = buttons[i];
+                final int position = i;
+                b.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    setValue(position);
-                }
+                    @Override
+                    public void onClick(View v) {
+                        setValue(position);
+                    }
 
-            });
-            mainLayout.addView(b);
-            if (enableDefaultSelection)
-                setButtonState(b, selected[i]);
-            this.buttons.add(b);
+                });
+                mainLayout.addView(b);
+                if (enableDefaultSelection)
+                    setButtonState(b, selected[i]);
+                this.buttons.add(b);
+            }
+            mainLayout.setBackgroundResource(R.drawable.button_section_shape);
         }
-        mainLayout.setBackgroundResource(R.drawable.button_section_shape);
     }
 
     public void setElements(CharSequence[] elements) {
