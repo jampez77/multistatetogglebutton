@@ -14,7 +14,7 @@ A simple multi-state toggle button for Android.
 
 ```
 dependencies {
-    implementation 'com.github.jampez77:multistatetogglebutton:0.3.1'
+    implementation 'com.github.jampez77:multistatetogglebutton:0.3.4'
 }
 ```
 
